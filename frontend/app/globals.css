@@ -1,0 +1,87 @@
+/* app/globals.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cursive {
+  font-family: "Cedarville Cursive", cursive;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  /*
+    KEY FIX #1: We are REMOVING all explicit overflow rules from here.
+    This lets the browser handle the main scrollbar naturally, which solves your
+    problem of the main scrollbar disappearing.
+  */
+  body {
+    min-height: 100vh; /* This is still needed for the sticky footer */
+  }
+
+  /* --- Your Theming CSS Variables (no changes needed here) --- */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --theme-background: 0 0% 100%;
+    --theme-text: 20 14.3% 4.1%;
+    --theme-text-subtle: 20 14.3% 4.1%;
+    --theme-primary: 25 95% 53%;
+    --theme-accent: 45 93% 47%;
+    --theme-accent-1: 45 93% 47%;
+    --theme-secondary: 210 40% 98%;
+    --theme-border: 214.3 31.8% 91.4%;
+    --theme-accent-subtle: 25 95% 53%;
+    --rgb-theme-primary: 251 146 60;
+    --rgb-theme-accent-1: 234 179 8;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --theme-background: 0 0% 0%;
+    --theme-text: 0 0% 98%;
+    --theme-text-subtle: 0 0% 70%;
+    --theme-primary: 25 95% 53%;
+    --theme-accent: 45 93% 47%;
+    --theme-accent-1: 45 93% 47%;
+    --theme-secondary: 210 40% 98%;
+    --theme-border: 214.3 31.8% 91.4%;
+    --theme-accent-subtle: 25 95% 53%;
+    --rgb-theme-primary: 251 146 60;
+    --rgb-theme-accent-1: 234 179 8;
+  }
+}
+
+@keyframes meteor-effect {
+  0% {
+    transform: rotate(45deg) translateX(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+.animate-meteor-effect {
+  animation: meteor-effect 5s linear infinite;
+}
+
+/* 
+  KEY FIX #2: This is our new utility class. 
+  When we want to stop ALL scrolling (for a modal or mobile menu), 
+  we will add this class to the <html> tag itself.
+*/
+html.no-scroll {
+  overflow: hidden;
+}
