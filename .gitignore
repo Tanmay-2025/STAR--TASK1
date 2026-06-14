@@ -1,41 +1,34 @@
-# === Global ===
+# Logs
 *.log
-.env
-.env.*  # covers .env.local, .env.production, etc.
-.DS_Store
-Thumbs.db
 
-# === Node.js / Next.js ===
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Frontend
 frontend/node_modules/
 frontend/.next/
-frontend/.turbo/
-frontend/.env.local
-frontend/.env.production
-frontend/package-lock.json
-frontend/yarn.lock
-frontend/pnpm-lock.yaml
 
-# === Django / Python ===
+# Python / Django
 __pycache__/
 *.py[cod]
 *.sqlite3
-*.db
-*.pot
-*.pyc
-
-# Django environment
-backend/db.sqlite3
 backend/.env
 backend/.venv/
 backend/venv/
-backend/env/
-backend/staticfiles/
-backend/media/
 
-# VSCode or IDE stuff
+# IDE
 .vscode/
 .idea/
 
-# OS-specific
-ehthumbs.db
-Icon?
+# OS
+.DS_Store
+Thumbs.db
